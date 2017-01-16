@@ -33,6 +33,16 @@ Won't display
 2. b/c .. indicates one level up, so it would not be the one in thing
 3. b/c .. indicates one level up & didn't ask for -F to show / at the end of file names
 
+ls Reading Comprehension
+Will display pnas_sub/ pnas_final/ original/
+2. ls -r -F
+	ls w/o the directory arguments will list files & directories in current directory
+3. ls -r -F /Users/backup
+	uses the absolute path *explicitly*
+4. 2 & 3
+
+Will not display 
+1. ls pwd  ->   pwd isn't the name of a directory
 
 
 
