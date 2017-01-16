@@ -23,6 +23,19 @@ The commands 1, 2, 3, 4, & 6 would not work.
 6. cd home
 	would end up bringing us to a directory home in the current directory (if it exists there)
 
+Relative Path Resolution
+If pwd displays /Users/thing, what will ls ../backup display?
+
+It will display ->      original pnas_final pnas_sub
+
+Won't display
+1. b/c there is a directory backup in /Users
+2. b/c .. indicates one level up, so it would not be the one in thing
+3. b/c .. indicates one level up & didn't ask for -F to show / at the end of file names
+
+
+
+
 
 
 
