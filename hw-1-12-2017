@@ -1,0 +1,13 @@
+Absolute v. Relative Paths
+The commands 5, 7, 8, & 9 are useable to navigate to Amanda's home directory /Users/amanda from /Users/amanda/data.
+5. cd ~ 
+	possible b/c the ~ represents the user's home directory (which would be /Users/amanda) so 
+	it would go straight to there
+7. cd ~/data/..
+	possible b/c it has the ~ and also indicates that we want to go back from /data
+	*complicated*
+8. cd
+	possible b/c it's the shortcut to go to the user's home directory
+9. cd ..
+	possible b/c it goes back one level (like from /Users/amanda/data to /Users/amanda)
+
