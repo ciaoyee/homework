@@ -11,3 +11,18 @@ The commands 5, 7, 8, & 9 are useable to navigate to Amanda's home directory /Us
 9. cd ..
 	possible b/c it goes back one level (like from /Users/amanda/data to /Users/amanda)
 
+The commands 1, 2, 3, 4, & 6 would not work.
+1. cd .
+	not possible b/c . stands for current directory
+2. cd /
+	/ stands for root directory
+3. cd /home/amanda
+	Amanda's home directory is /Users/amanda not /home/amanda
+4. cd ../..
+	goes back TWO levels 
+6. cd home
+	would end up bringing us to a directory home in the current directory (if it exists there)
+
+
+
+
