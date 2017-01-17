@@ -44,6 +44,12 @@ Will display pnas_sub/ pnas_final/ original/
 Will not display 
 1. ls pwd  ->   pwd isn't the name of a directory
 
+Exploring more ls Arguments
+
+-l argument makes the ls command use "long listing format" (which shows the file & directory names and also other info on last modification & file size)
+-h argument makes the file size "human readable" (which essentially displays 6789 as 6.8K instead) Usually used w/ -l and/or -s
+
+
 
 
 
