@@ -49,7 +49,11 @@ Exploring more ls Arguments
 -l argument makes the ls command use "long listing format" (which shows the file & directory names and also other info on last modification & file size)
 -h argument makes the file size "human readable" (which essentially displays 6789 as 6.8K instead) Usually used w/ -l and/or -s
 
+Listing Recursive and By Time
 
+ls -R -t 
+
+Would display directories alphabetical at each level and files/directories in each directory sorted by last modification
 
 
 
