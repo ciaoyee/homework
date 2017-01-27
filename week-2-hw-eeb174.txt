@@ -4,10 +4,11 @@ Rodentia
 Rodentia
 Macroscelidea
 Rodentia
-(head -n 6 Pacifici2013_data.csv | cut -d ';' -f 2)
+#head -n 6 Pacifici2013_data.csv | cut -d ';' -f 2
 
 There are 153 unique families
-(cut -d ';' -f 3  Pacifici2013_data.csv | sort -n | uniq | wc -l)
+#cut -d ';' -f 3  Pacifici2013_data.csv | sort -n | uniq | wc -l
+#Should I have used -u? Used -u once and it gave a much smaller number
 
 
   784  cd ~
@@ -24,6 +25,7 @@ There are 153 unique families
 
 The 10th largest species is glacialis in the database. The 10th smallest species is nanulus
 #Question about code
+
   840  wc -l BodyM.csv 
   841  grep Vombatidae BodyM.csv
   842  grep -c Vombatidae BodyM.csv
@@ -39,3 +41,36 @@ The 10th largest species is glacialis in the database. The 10th smallest species
   852  grep -r "Gorilla" data/
   853  history 14
   854  history 15 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb174.txt
+
+The file size for Marra2014_data.fasta is 553K. (ls -lh) 
+>contig01235  length=561  numreads=21  gene=isogroup00036  status=isotig
+>contig01236  length=257  numreads=59  gene=isogroup00036  status=isotig
+>contig01238  length=187  numreads=42  gene=isogroup00036  status=isotig
+>contig01240  length=276  numreads=22  gene=isogroup00036  status=isotig
+>contig01241  length=2154  numreads=171  gene=isogroup00036  status=isotig
+>contig01243  length=902  numreads=65  gene=isogroup00036  status=isotig
+>contig01244  length=466  numreads=29  gene=isogroup00036  status=isotig
+>contig01245  length=2579  numreads=66  gene=isogroup00036  status=isotig
+>contig01246  length=540  numreads=24  gene=isogroup00036  status=isotig
+>contig01248  length=237  numreads=24  gene=isogroup00036  status=isotig
+>contig01250  length=166  numreads=8  gene=isogroup00036  status=isotig
+>contig01251  length=176  numreads=8  gene=isogroup00036  status=isotig
+>contig01252  length=136  numreads=8  gene=isogroup00036  status=isotig
+>contig01253  length=145  numreads=8  gene=isogroup00036  status=isotig
+>contig01254  length=145  numreads=42  gene=isogroup00036  status=isotig
+>contig01255  length=180  numreads=59  gene=isogroup00036  status=isotig
+#grep -i -c "isogroup00036" my_file.fasta
+There are 16 contigs classified as isogroup00036.
+#Replaced each double space delimiter with ',' but couldn't figure out how to take out
+the sequence and just list the contig-status 
+There are 43 uniq isogroups.
+#grep -i "isogroup" my_file.fasta | sort -n | uniq 
+#know there should be a -c somewhere but I know there's only 43 uniqe ones because 
+the highest displayed isogroup is 43
+The contig with the most number of reads is contig00302 with 3330 numreads.
+#grep -i "numreads" my_file.fasta | cut -d ' ' -f 1, 5 | sort -n
+#not really sure how to narrow down, manual searched numreads
+
+
+
+
