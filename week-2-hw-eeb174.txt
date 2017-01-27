@@ -10,3 +10,19 @@ There are 153 unique families
 (cut -d ';' -f 3  Pacifici2013_data.csv | sort -n | uniq | wc -l)
 
 
+  784  cd ~
+  785  cd Desktop/eeb-177/CSB/unix/sandbox/
+  786  tail -n +2 ../data/Pacifici2013_data.csv
+  787  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6
+  788  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' '
+  789  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6
+  790  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6 > BodyM.csv
+  791  history
+  792  history tail -n 6
+  793  history tail -n + 6
+  794  history tail -n +6
+  795  history | tail -n +6
+  796  history tail -n 15
+  797  history tail -n +15
+  798  history 15
+  799  history 16 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb174.txt
