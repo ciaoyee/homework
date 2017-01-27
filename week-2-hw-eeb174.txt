@@ -20,9 +20,5 @@ There are 153 unique families
   791  history
   792  history tail -n 6
   793  history tail -n + 6
-  794  history tail -n +6
-  795  history | tail -n +6
-  796  history tail -n 15
-  797  history tail -n +15
-  798  history 15
   799  history 16 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb174.txt
+The 10th largest species is glacialis in the database. The 10th smallest species is nanulus
