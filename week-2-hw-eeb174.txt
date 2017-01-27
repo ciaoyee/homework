@@ -4,3 +4,9 @@ Rodentia
 Rodentia
 Macroscelidea
 Rodentia
+(head -n 6 Pacifici2013_data.csv | cut -d ';' -f 2)
+
+There are 153 unique families
+(cut -d ';' -f 3  Pacifici2013_data.csv | sort -n | uniq | wc -l)
+
+
