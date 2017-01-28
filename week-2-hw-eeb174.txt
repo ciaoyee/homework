@@ -71,6 +71,7 @@ The contig with the most number of reads is contig00302 with 3330 numreads.
 #grep -i "numreads" my_file.fasta | cut -d ' ' -f 1, 5 | sort -n
 #not really sure how to narrow down, manual searched numreads
 
+for textfiles in *.txt; do cp ../../data/Saavedra2013/$textfiles .;echo $textfiles edited-$textfiles; done
 
 
 
