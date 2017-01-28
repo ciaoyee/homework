@@ -1,3 +1,5 @@
+Question 1
+
 Order
 Rodentia
 Rodentia
@@ -6,10 +8,13 @@ Macroscelidea
 Rodentia
 #head -n 6 Pacifici2013_data.csv | cut -d ';' -f 2
 
+Question 2
+
 There are 153 unique families
 #cut -d ';' -f 3  Pacifici2013_data.csv | sort -n | uniq | wc -l
 #Should I have used -u? Used -u once and it gave a much smaller number
 
+Question 3
 
   784  cd ~
   785  cd Desktop/eeb-177/CSB/unix/sandbox/
@@ -23,8 +28,12 @@ There are 153 unique families
   793  history tail -n + 6
   799  history 16 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb174.txt
 
+Question 4
+
 The 10th largest species is glacialis in the database. The 10th smallest species is nanulus
 #Question about code
+
+Question 5
 
   840  wc -l BodyM.csv 
   841  grep Vombatidae BodyM.csv
@@ -41,6 +50,8 @@ The 10th largest species is glacialis in the database. The 10th smallest species
   852  grep -r "Gorilla" data/
   853  history 14
   854  history 15 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb174.txt
+
+Question 6
 
 The file size for Marra2014_data.fasta is 553K. (ls -lh) 
 >contig01235  length=561  numreads=21  gene=isogroup00036  status=isotig
@@ -71,7 +82,25 @@ The contig with the most number of reads is contig00302 with 3330 numreads.
 #grep -i "numreads" my_file.fasta | cut -d ' ' -f 1, 5 | sort -n
 #not really sure how to narrow down, manual searched numreads
 
+Question 7
+
 for textfiles in *.txt; do cp ../../data/Saavedra2013/$textfiles .;echo $textfiles edited-$textfiles; done
+
+Question 8
+1. Using grep
+	grep -w "of" haiku.txt
+2. find pipeline reading comprehension
+	finds the total line count as well as all .dat files, sorting them numerically
+3. Matching & Subtracting
+	find /data -name -ose.dat | grep -v temp
+	grep -v "temp" $(find /data -name '*ose.dat')
+4. Tracking a Species
+	cut -d , -f 1,3 $1.txt | grep -w $1 -r $2 | cut -d : -f 2
+#???????
+5. Little Women
+	for LittleWomen.txt; grep (Amy | Jo | Meg | Beth) | wc ; done
+6. Finding Files with Different Properties
+	$ find ./ -type f -mtime -1 -user ahmed
 
 
 
