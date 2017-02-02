@@ -1,0 +1,20 @@
+1. 1.11.2
+	1)The levels of 3 and 27 were recorded 66 times.
+#cut -f 1 Gesquiere2011_data.csv | grep -c -w 3
+#cut -f 1 Gesquiere2011_data.csv | grep -c -w 27
+
+	2) #! /bin/bash
+	cut -f 1 $1 | grep -c -w $2
+
+	3) #! /bin/bash
+	ID = "tail -n +2 $1 | cut -f 1 | sort -n | uniq"
+
+	for babID in $ID:
+	do
+		count= "bash hw3.sh ../data/Gesquiere2011_data.csv $babID"
+		echo "ID is" $babID "Times tested: " $count
+	done
+#The ID should output all the unique ID numbers of gorillas (i.e. 1, 2, etc) and the ID would be the data set from which the babID becomes the variable to input into the for loop. Then the count should use the script that I made in the previous question (hw3.sh) and find the number of times the given babID was tested, and then in the end, what should be displayed is "ID is" <the given babID> "Times tested:" <the number that resulted from the count>.
+
+2. 1.11.3
+	1)
