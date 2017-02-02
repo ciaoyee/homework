@@ -7,7 +7,7 @@
 	cut -f 1 $1 | grep -c -w $2
 
 	3) #! /bin/bash
-	ID = "tail -n +2 $1 | cut -f 1 | sort -n | uniq"
+	ID= `tail -n +2 $1 | cut -f 1 | sort -n | uniq`
 
 	for babID in $ID:
 	do
@@ -17,4 +17,22 @@
 #The ID should output all the unique ID numbers of gorillas (i.e. 1, 2, etc) and the ID would be the data set from which the babID becomes the variable to input into the for loop. Then the count should use the script that I made in the previous question (hw3.sh) and find the number of times the given babID was tested, and then in the end, what should be displayed is "ID is" <the given babID> "Times tested:" <the number that resulted from the count>.
 
 2. 1.11.3
-	1)
+	1) #! /bin/bash
+	echo "Filename: "
+	echo $1
+	echo "Number of rows: "
+	cat $1 | wc -l
+	echo "Number of columns: "
+	head -n 1 $1 | tr -d " " | tr -d "\n" | wc -c
+
+	2) Files= ../data/Saavedra2013/*.txt
+	for f in $Files
+	do
+		row= `cat $f | wc -l`
+		col= `head -n 1 $f | tr -d " " | tr -d "\n" | wc -c
+		echo $f $row $col
+	done
+#Someone explained this to me and I understood while they were explaining but looking back at the code I don't quite understand again *Ask about process*
+	
+	3)n58 (678) has the largest number of rows & n56 has the largest number of columns (207).
+#
