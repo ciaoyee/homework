@@ -1,0 +1,134 @@
+---
+title: "week-8-hw-eeb174"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+setwd("/Users/yeechau/Downloads/homework")
+canids <- read.csv("/Users/yeechau/Downloads/canids/cleanedcanids.csv", header =F, as.is = T)
+names(canids) <- c("genus", "species", "minage", "maxage")
+head(canids)
+
+canid_occ <- ggplot(canids, aes( species, ymin = maxage, ymax=minage, colour = genus))
+canid_occ <- canid_occ + geom_linerange()
+canid_occ <- canid_occ + theme(legend.position="none") 
+canid_occ <- canid_occ + coord_flip() 
+canid_occ <- canid_occ +  theme(axis.text.y = element_text(size=3))
+canid_occ <- canid_occ + theme(axis.ticks.y=element_blank())
+canid_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40))
+canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+canid_occ 
+ggsave(filename = "canid-occ.pdf", plot = canid_occ)
+```
+## Short Report
+1. The taxonomic group displayed is canid.
+2. There are 212 unique fossil species contained within it.
+3. There are 47 unique fossil genera.
+4. Canidae has the longest..
+
+## For Pt. 1 Q 8, lack of memory space made me unable to download any more files.
+
+## Part 2 : Data Frames
+### Part 2a
+1. 
+df <- data.frame(id = c('a', 'b', 'c'),
+                 x = 1:3,
+                 y = c(TRUE, TRUE, FALSE),
+                 stringsAsFactors = FALSE)
+
+df <- data.frame(first = c('Grace'),
+                 last = c('Hopper'),
+                 lucky_number = c(0),
+                 stringsAsFactors = FALSE)
+                 
+df <- rbind(df, list('Yee', 'Chau', 789) )
+df <- cbind(df, coffeetime = c(TRUE,TRUE))
+
+2. download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "/User/yeechau/Downloads/homework/gapminder-FiveYearData.csv")
+gapminder <- read.csv(file = "/User/yeechau/Downloads/homework/gapminder-FiveYearData.csv")
+
+3. Country & continent are factors, year is an integer vector, and pop, gdpPercap, & lifeExp are numeric vectors.
+
+### Part 2b : http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting/
+1. x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+options: x[2:4] or x[c("b", "c", "d")] or x[c(2,3,4)]
+
+2. A and C are correct. The which command returns the index of every TRUE value in its input. The names(x) == "g" command didn’t return any TRUE values. Because there were no TRUE values passed to the which command, it returned an empty vector. Negating this vector with the minus sign didn’t change its meaning. Because we used this empty vector to retrieve values from x, it produced an empty numeric vector. It was a named numeric empty vector because the vector type of x is “named numeric” since we assigned names to the values (try str(x) ).
+
+3. x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+
+4. D will extract the values 11 and 14
+
+5. Using list and vector subsetting : xlist$b[2] or xlist[[2]][2] or xlist[["b"]][2]
+
+6. mod <- aov(pop ~ lifeExp, data=gapminder)
+attributes(mod) ## `df.residual` is one of the names of `mod`
+mod$df.residual
+
+7. a) # gapminder[gapminder$year = 1957,]
+gapminder[gapminder$year == 1957,]
+b) # gapminder[,-1:4]
+gapminder[,-c(1:4)]
+c) # gapminder[gapminder$lifeExp > 80]
+gapminder[gapminder$lifeExp > 80,]
+d) # gapminder[1, 4, 5]
+gapminder[1, c(4, 5)]
+e) # gapminder[gapminder$year == 2002 | 2007,]
+ gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+ gapminder[gapminder$year %in% c(2002, 2007),]
+ 
+8. gapminder_small <- gapminder[c(1:9, 19:23),]
+
+### Part 2c : http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/
+1. ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+
+2. ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
+  geom_point()
+  
+3. ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+ geom_point() + geom_line(aes(color=continent))
+ 
+4a. ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+ geom_point(size=3, color="orange") + scale_x_log10() +
+ geom_smooth(method="lm", size=1.5)
+4b. ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+geom_point(size=3, shape=17) + scale_x_log10() +
+geom_smooth(method="lm", size=1.5)
+
+5. ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
+ geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
